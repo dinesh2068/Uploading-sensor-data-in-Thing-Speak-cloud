@@ -71,10 +71,62 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+```
+#include <WiFi.h>
+#include <WiFiClient.h>;
+#include <ThingSpeak.h>;
+const char* ssid = "realme X7 5G"; //Your Network SSID
+const char* password = "vidhya31"; //Your Network Password
+int val;
+#include <DHT.h>
+#define DHT11PIN 23
+#define DHTTYPE DHT11
 
+DHT dht(DHT11PIN, DHTTYPE);
+float h,tc ;
+
+WiFiClient client;
+unsigned long myChannelNumber = 2502937; //Your Channel Number (Without Brackets)
+//unsigned long myChannelField = 1870717; // Channel ID
+//const int ChannelField = 1; // Which channel to write data
+const char * myWriteAPIKey = "HWWX2FCUVMP80VYL"; // Your write API Key
+void setup()
+{
+Serial.begin(115200);
+delay(10);
+// Connect to WiFi network
+WiFi.begin(ssid, password);
+ThingSpeak.begin(client);
+dht.begin();
+  delay(1000);
+  Serial.println("DHT11 Temperature and Humidity ");
+}
+void loop()
+{
+h = dht.readHumidity();
+tc = dht.readTemperature();
+  Serial.print('\n');
+  Serial.print("Humidity = ");
+  Serial.print(h);
+  Serial.print("%,  ");
+  Serial.print("Temperature = ");
+  Serial.print(tc);
+  Serial.print("°C, ");
+ 
+ThingSpeak.writeField(myChannelNumber, 1,h, myWriteAPIKey); //Update in ThingSpeak
+ThingSpeak.writeField(myChannelNumber, 2,tc, myWriteAPIKey); //Update in ThingSpeak
+delay(100);
+}
+```
 # CIRCUIT DIAGRAM:
 
+![image](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/1ce350f1-fbf4-4d43-bdc5-df43bfd5edbd)
+
 # OUTPUT:
+
+![image](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/682ab5d7-afd5-4209-a761-f24168bc0fe7)
+
+![image](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/67ed5f61-1391-4dd0-87d2-55b8d22f6a16)
 
 # RESULT:
 
