@@ -123,12 +123,8 @@ delay(100);
 ![image](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/1ce350f1-fbf4-4d43-bdc5-df43bfd5edbd)
 
 # OUTPUT:
-
-![image](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/682ab5d7-afd5-4209-a761-f24168bc0fe7)
-
-![image](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/67ed5f61-1391-4dd0-87d2-55b8d22f6a16)
+![WhatsApp Image 2024-05-16 at 10 15 13_edae886f](https://github.com/dinesh2068/Uploading-sensor-data-in-Thing-Speak-cloud/assets/151390189/2605af89-5231-4bb1-afff-fb26b7d21c22)
 
 # RESULT:
 
 Thus the temperature sensor values are updated in the Thing speak using ESP32 controller.
-
